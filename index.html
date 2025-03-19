@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Negi - Portfolio</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #000; /* Black */
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-btn {
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-line {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 4px 0;
+        }
+
+        .name {
+            margin-left: 20px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff; /* White */
+        }
+
+        /* Dropdown Menu */
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background: #4CAF50; /* Mild Green */
+            min-width: 160px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            top: 60px;
+            left: 20px;
+            z-index: 1001;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #ffffff44;
+        }
+
+        .dropdown-content a:hover {
+            background: #388E3C; /* Darker Green */
+        }
+
+        .show { display: block; }
+
+        /* Page Content */
+        .page-content {
+            margin-top: 100px;
+            padding: 40px 20px;
+            display: none;
+            text-align: center;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .active-page {
+            display: block;
+        }
+
+        /* Home Page Styles */
+        .portfolio-heading {
+            background: #f0f0f0;  /* Light Grey */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 3em;
+            color: #333; /* Dark Text */
+            margin-bottom: 30px;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 300px;
+            border: 5px solid #1e3a8a;
+            border-radius: 15px;
+            margin: 20px auto 40px;
+            object-fit: cover;
+            display: block;
+            background: #fff;
+            padding: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-section {
+            margin: 40px auto;
+            max-width: 600px;
+        }
+
+        .intro-video {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+        }
+
+        .video-text {
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: #1e3a8a;
+        }
+
+        /* Assignment Page Styles */
+        .movie-title {
+            background: #4CAF50;  /* Green */
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 2.2em;
+            margin: 20px 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .movie-poster {
+            width: 300px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .review-text {
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .profile-photo {
+                width: 200px;
+                height: 250px;
+            }
+            .intro-video {
+                height: 200px;
+            }
+            .movie-poster {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="menu-btn" onclick="toggleMenu()">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+        <div class="name">Ayush Negi</div>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div id="myDropdown" class="dropdown-content">
+        <a href="#home" onclick="showPage('home-page')">Home</a>
+        <a href="#assignment" onclick="showPage('assignment-page')">Assignment</a>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page-content active-page">
+        <h1 class="portfolio-heading">Portfolio</h1>
+        <p class="intro-text">Hi I am Ayush Negi and this is my portfolio</p>
+        
+        <img src="./mee.jpg" alt="Profile Photo" class="profile-photo">
+
+        <div class="video-section">
+            <iframe class="intro-video"
+                src="https://drive.google.com/file/d/1gJPZJok-EVMr4tA9UuZIGFUPymdPj01p/preview"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+            <p class="video-text">Introduction Video</p>
+        </div>
+        <div class="video-section">
+            <iframe class="intro-video"
+                src="https://drive.google.com/file/d/1ID4J4p7bKv_cwtR1xRAbVFIi3BQ2orTF/preview"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+            <p class="video-text">Introduction Video</p>
+        </div>
+    </div>
+
+    <!-- Assignment Page -->
+    <div id="assignment-page" class="page-content">
+        <h1 class="movie-title">The Shawshank Redemption</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-xD_k1hzKoDkzhvivczwr_VLhQ9vfFeeU8w&s" alt="Movie Poster" class="movie-poster">
+        <p class="review-text">
+            <h2>-> My Favourite Dialogue and Why?</h2><br>
+            <p>
+                <b>"Brooks was here."</b><br>
+                This is my favourite dialogue because it carries deep emotional weight. It reflects Brooks' struggle to adjust to life outside prison after spending decades behind bars. The simple yet powerful words symbolize loneliness, hopelessness, and the difficulty of starting over when you feel lost.
+            </p><br>
+        
+            <h2>-> My Personal Review</h2><br>
+            <p>
+                <i>The Shawshank Redemption</i> is a masterpiece that beautifully portrays themes of hope, friendship, and perseverance. The characters are deeply relatable, and the storyline keeps you engaged throughout. The emotional depth and life lessons make it a movie worth watching multiple times.
+            </p><<br>
+        
+            <h2>-> Learning to Take Away from the Movie</h2><br>
+            <p>
+                The movie teaches us that no matter how tough the situation gets, hope can guide us through. It also highlights the importance of patience, resilience, and meaningful friendships in overcoming challenges.
+            </p><br>
+        
+            <h2>-> Related Concepts Learned in the Classroom</h2><br>
+            <p>
+                The film connects well with psychological concepts such as institutionalization, where prisoners struggle to adapt to life outside prison. It also explores themes of mental health, emotional well-being, and the power of human connection — all of which are significant in understanding real-life social dynamics.
+        
+            
+        </p><br>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById("myDropdown");
+            dropdown.classList.toggle("show");
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            document.getElementById(pageId).classList.add('active-page');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-btn')) {
+                const dropdown = document.getElementById("myDropdown");
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
